@@ -1,6 +1,15 @@
 var express = require('express');
 var app = express();
 
+var admin = require("firebase-admin");
+
+var serviceAccount = require("Documents/serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://my-project-1498757432999.firebaseio.com"
+});
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));

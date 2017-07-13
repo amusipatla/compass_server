@@ -12,7 +12,8 @@
   "author": "amulya-musipatla",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.15.3"
+    "express": "^4.15.3",
+    "firebase-admin": "^5.0.1"
   },
   "engines": {
     "node": "6.11.1"
