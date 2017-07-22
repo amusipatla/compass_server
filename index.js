@@ -45,6 +45,7 @@ function listenForNotificationRequests() {
 
 function sendNotificationToUser(recipients, message, onSuccess) {
   for(let username of recipients){
+    var messageSplit = message.split(":");
     request({
       url: 'https://fcm.googleapis.com/fcm/send',
       method: 'POST',
@@ -57,7 +58,8 @@ function sendNotificationToUser(recipients, message, onSuccess) {
           message
         },
         notification: {
-          title: message
+          "title": "New message from " + messageSplit[0] + " to " + messageSplit[1],
+          "body": messageSplit[2]
         },
         to : '/topics/user_'+username
       })
